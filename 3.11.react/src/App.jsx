@@ -4,6 +4,7 @@ import Title from "./components/Title";
 import Modal from "./components/Modal";
 
 function App() {
+  const [showModal, setShowModal] = useState(true);
   const [showEvents, setShowEvents] = useState(false);
   const [forecast, setForecast] = useState([
     { weather: "raining", id: 1 },
@@ -16,7 +17,9 @@ function App() {
       return prev.filter(button => button.id !== id);
     });
   };
-
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   const buttons = forecast.map(weather => (
     <button
       key={weather.id}
@@ -37,10 +40,12 @@ function App() {
       ) : (
         <button onClick={() => setShowEvents(true)}>Display Events</button>
       )}
-      <Modal>
-        <h2>10% off your next purchase</h2>
-        <p>use code NOTHINGMATTERS at the checkout.</p>
-      </Modal>
+      {showModal && (
+        <Modal handleCloseModal={handleCloseModal}>
+          <h2>10% off your next purchase</h2>
+          <p>use code NOTHINGMATTERS at the checkout.</p>
+        </Modal>
+      )}
     </div>
   );
 }
