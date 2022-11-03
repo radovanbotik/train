@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Title from "./components/Title";
+import Modal from "./components/Modal";
 
 function App() {
   const [showEvents, setShowEvents] = useState(false);
@@ -25,16 +26,21 @@ function App() {
       {weather.weather}
     </button>
   ));
-
+  const subtitle = "check them out";
   return (
     <div className="App">
-      <Title />
+      <Title title={"These are the events"} subtitle={subtitle} />
+
       {showEvents && buttons}
       {showEvents ? (
         <button onClick={() => setShowEvents(false)}>Hide Events</button>
       ) : (
         <button onClick={() => setShowEvents(true)}>Display Events</button>
       )}
+      <Modal>
+        <h2>10% off your next purchase</h2>
+        <p>use code NOTHINGMATTERS at the checkout.</p>
+      </Modal>
     </div>
   );
 }

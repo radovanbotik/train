@@ -1,9 +1,10 @@
-export default function Title() {
+export default function Title(props) {
+  const { title, subtitle } = props;
   return (
     <div>
-      <h1 className="title">Events</h1>
+      <h1 className="title">{title}</h1>
       <br />
-      <h2 className="subtitle">All the latest events</h2>
+      <h2 className="subtitle">{subtitle}</h2>
     </div>
   );
 }
