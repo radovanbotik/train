@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Title from "./components/Title";
 
 function App() {
   const [showEvents, setShowEvents] = useState(false);
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div className="App">
+      <Title />
       {showEvents && buttons}
       {showEvents ? (
         <button onClick={() => setShowEvents(false)}>Hide Events</button>
