@@ -43,7 +43,7 @@ function App() {
         Get Discount
       </button>
       {showModal && (
-        <Modal handleCloseModal={handleCloseModal}>
+        <Modal handleCloseModal={handleCloseModal} isSalesModal={true}>
           <h2>10% off your next purchase</h2>
           <p>use code NOTHINGMATTERS at the checkout.</p>
         </Modal>
