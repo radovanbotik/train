@@ -4,7 +4,7 @@ import "./Modal.css";
 export default function Modal(props) {
   const { handleCloseModal, children, isSalesModal } = props;
   const styles = {
-    border: isSalesModal ? "2px solid red" : "none",
+    border: isSalesModal ? "2px solid gold" : "none",
   };
   return ReactDOM.createPortal(
     <div className="modal-overlay">
