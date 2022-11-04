@@ -11,9 +11,16 @@ export default function EventForm() {
     setTitle("");
     setDate("");
   };
-
+  const handleSubmit = e => {
+    e.preventDefault();
+    const events = {
+      title: title,
+      date: date,
+      id: Math.floor(Math.random() * 1000),
+    };
+  };
   return (
-    <form className="event-form">
+    <form className="event-form" onSubmit={handleSubmit}>
       <label htmlFor="newevent">Weather</label>
       <input
         type="text"
