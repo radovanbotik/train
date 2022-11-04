@@ -10,7 +10,9 @@ export default function EventList(props) {
       id={weather.id}
       onClick={() => handleRemoval(weather.id)}
     >
-      {weather.weather}
+      <h2>{weather.weather}</h2>
+      <h3>{weather.date}</h3>
+      <h4>{weather.location}</h4>
     </button>
   ));
 

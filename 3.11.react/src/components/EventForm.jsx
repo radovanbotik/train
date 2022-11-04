@@ -10,12 +10,12 @@ export default function EventForm(props) {
   // const date = useRef();
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("Trnava");
 
   const resetForm = () => {
     setTitle("");
     setDate("");
-    setLocation("");
+    setLocation("Trnava");
   };
 
   const handleSubmit = e => {
