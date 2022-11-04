@@ -8,11 +8,13 @@ import EventForm from "./components/EventForm";
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [showEvents, setShowEvents] = useState(false);
-  const [forecast, setForecast] = useState([
-    { weather: "raining", id: 1 },
-    { weather: "sunny", id: 2 },
-    { weather: "windy", id: 3 },
-  ]);
+  const [forecast, setForecast] = useState([]);
+
+  const addEvent = event => {
+    setForecast(prev => {
+      return [...prev, event];
+    });
+  };
 
   const handleRemoval = id => {
     setForecast(prev => {
@@ -45,7 +47,7 @@ function App() {
       </button>
       {showModal && (
         <Modal handleCloseModal={handleCloseModal} isSalesModal={true}>
-          <EventForm />
+          <EventForm addEvent={addEvent} />
         </Modal>
       )}
     </div>

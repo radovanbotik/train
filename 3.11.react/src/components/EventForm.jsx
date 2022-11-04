@@ -2,7 +2,9 @@ import React from "react";
 import { useState } from "react";
 import "./EventForm.css";
 
-export default function EventForm() {
+export default function EventForm(props) {
+  const { addEvent } = props;
+  console.log(props);
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   //console.log({ title, date });
@@ -13,11 +15,13 @@ export default function EventForm() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    const events = {
-      title: title,
+    const event = {
+      weather: title,
       date: date,
       id: Math.floor(Math.random() * 1000),
     };
+    addEvent(event);
+    resetForm();
   };
   return (
     <form className="event-form" onSubmit={handleSubmit}>
@@ -42,10 +46,6 @@ export default function EventForm() {
         }}
       />
       <button type="submit">submit</button>
-      <p>
-        Event: {title} <br /> Date: {date}
-      </p>
-      <p onClick={resetForm}>reset the form</p>
     </form>
   );
 }
