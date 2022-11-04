@@ -3,6 +3,7 @@ import "./App.css";
 import Title from "./components/Title";
 import Modal from "./components/Modal";
 import EventList from "./components/EventList";
+import EventForm from "./components/EventForm";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -40,12 +41,11 @@ function App() {
           setShowModal(true);
         }}
       >
-        Get Discount
+        Add new event
       </button>
       {showModal && (
         <Modal handleCloseModal={handleCloseModal} isSalesModal={true}>
-          <h2>10% off your next purchase</h2>
-          <p>use code NOTHINGMATTERS at the checkout.</p>
+          <EventForm />
         </Modal>
       )}
     </div>

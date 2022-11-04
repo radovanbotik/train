@@ -1,0 +1,6 @@
+.event-form input,
+.event-form label {
+  display: block;
+  text-align: left;
+  padding: 1rem;
+}
