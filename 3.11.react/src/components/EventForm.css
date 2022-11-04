@@ -1,6 +1,13 @@
+.event-form {
+  display: grid;
+  place-content: center;
+}
 .event-form input,
 .event-form label {
   display: block;
   text-align: left;
   padding: 1rem;
+}
+.event-form button {
+  margin-top: 2rem;
 }
