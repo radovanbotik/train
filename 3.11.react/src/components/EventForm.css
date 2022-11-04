@@ -3,7 +3,8 @@
   place-content: center;
 }
 .event-form input,
-.event-form label {
+.event-form label,
+.event-form select {
   display: block;
   text-align: left;
   padding: 1rem;

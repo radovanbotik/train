@@ -14,6 +14,7 @@ function App() {
     setForecast(prev => {
       return [...prev, event];
     });
+    setShowModal(false);
   };
 
   const handleRemoval = id => {

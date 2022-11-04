@@ -1,23 +1,29 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./EventForm.css";
 
 export default function EventForm(props) {
   const { addEvent } = props;
-  console.log(props);
+  // const [title, setTitle] = useState("");
+  // const [date, setDate] = useState("");
+  // const title = useRef();
+  // const date = useRef();
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
-  //console.log({ title, date });
+  const [location, setLocation] = useState("");
 
   const resetForm = () => {
     setTitle("");
     setDate("");
+    setLocation("");
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     const event = {
       weather: title,
       date: date,
+      location: location,
       id: Math.floor(Math.random() * 1000),
     };
     addEvent(event);
@@ -30,21 +36,23 @@ export default function EventForm(props) {
         type="text"
         id="newevent"
         name="newevent"
+        onChange={e => setTitle(e.target.value)}
         value={title}
-        onChange={e => {
-          setTitle(e.target.value);
-        }}
       />
       <label htmlFor="eventdate">Date</label>
       <input
         type="date"
         id="eventdate"
         name="eventdate"
+        onChange={e => setDate(e.target.value)}
         value={date}
-        onChange={e => {
-          setDate(e.target.value);
-        }}
       />
+      <label htmlFor="select">Event Location:</label>
+      <select id="select" onChange={e => setLocation(e.target.value)}>
+        <option value="trnava">Trnava</option>
+        <option value="bratislava">Bratislava</option>
+        <option value="budapest">Budapest</option>
+      </select>
       <button type="submit">submit</button>
     </form>
   );
